@@ -25,7 +25,14 @@ else
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="teacher_index.php">Home</a></li>
-                <li><a href="#">Jobs</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Jobs<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+						<li><a href="teacher_add_job.php">Add job</a></li>
+						<li><a href="teacher_view_job.php">View job(s) posted</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Change password</a></li>

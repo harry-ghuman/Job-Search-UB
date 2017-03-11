@@ -25,11 +25,11 @@ include "connection.php";
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>First name</label>
-                                <input type="text"class="form-control"name="firstname">
+                                <input type="text"class="form-control"name="firstname" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Last name</label>
-                                <input type="text"class="form-control"name="lastname">
+                                <input type="text"class="form-control"name="lastname" required>
                             </div>
                         </div>
 						<div class="row">
@@ -41,29 +41,29 @@ include "connection.php";
 						<div class="row">
                             <div class="form-group col-md-12">
                                 <label>Job title</label>
-                                <input type="text"class="form-control"name="job_title">
+                                <input type="text"class="form-control"name="job_title" required>
                             </div>
                         </div>
 						<div class="row">
                             <div class="form-group col-md-12">
                                 <label>Department</label>
-                                <input type="text"class="form-control"name="department">
+                                <input type="text"class="form-control"name="department" required>
                             </div>
                         </div>
 						<div class="row">
                             <div class="form-group col-md-6">
                                 <label>Email</label>
-                                <input type="email"class="form-control"name="email">
+                                <input type="email"class="form-control"name="email" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Phone</label>
-                                <input type="text"class="form-control"name="phone">
+                                <input type="text"class="form-control"name="phone" required>
                             </div>
                         </div>
 						<div class="row">
                             <div class="form-group col-md-12">
                                 <label>Office address</label>
-                                <input type="text"class="form-control"name="office_address">
+                                <input type="text"class="form-control"name="office_address" required>
                             </div>
                         </div>
 						<br>

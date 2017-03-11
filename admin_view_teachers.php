@@ -64,6 +64,7 @@ if(isset($_REQUEST['q'])) {
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Office address</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,6 +82,10 @@ if(isset($_REQUEST['q'])) {
                         <td><?php echo $row[6] ?></td>
                         <td><?php echo $row[7] ?></td>
                         <td><?php echo $row[8] ?></td>
+						<td>
+							<button onclick="location.href='admin_edit_teacher.php?email=<?php echo $row[6] ?>'"class="btn btn-primary btn-md">Edit</button>
+							<button data-toggle="modal" data-target="#myModal" data-id="<?php echo $row[6] ?>" class="open-modal btn btn-primary btn-md">Delete</button>
+						</td>
                     </tr>
                     <?php
                     $count++;
@@ -91,5 +96,30 @@ if(isset($_REQUEST['q'])) {
             </div>
         </div>
     </div>
+	<script>
+	$(document).on("click", ".open-modal", function () {
+		var teacher_email = $(this).data('id');
+		$("#email").val( teacher_email );
+	});
+	</script>
+	<div class="modal fade" id="myModal" role="dialog" style="top:150px">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+			<div class="modal-header">
+				<form action="admin_delete_teacher.php" method="post">
+					<input type="hidden" id="email" name="email">
+					<div class="alert alert-warning text-center">
+						<strong>Are you sure?</strong>
+					</div>
+					<div class="text-center">
+					<button type="submit" class="btn btn-default">Yes</button>
+				</form>
+				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+  
 </body>
 </html>

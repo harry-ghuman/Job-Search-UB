@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2017 at 04:21 PM
+-- Generation Time: Mar 11, 2017 at 11:39 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -310,6 +310,31 @@ INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `job_info`
+--
+
+CREATE TABLE `job_info` (
+  `id` int(10) NOT NULL,
+  `job_title` varchar(50) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `responsibilities` varchar(500) NOT NULL,
+  `requirements` varchar(500) NOT NULL,
+  `credits` varchar(50) NOT NULL,
+  `teacher_id` int(10) NOT NULL,
+  `created_on` datetime NOT NULL,
+  `last_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `job_info`
+--
+
+INSERT INTO `job_info` (`id`, `job_title`, `description`, `responsibilities`, `requirements`, `credits`, `teacher_id`, `created_on`, `last_updated`) VALUES
+(3, 'Software Developer- Splice', 'Do you have a strong technical background matched with a passion for Web Technologies?\r\n\r\nAre you not intimidated by a challenge and love to problem-solve?\r\n\r\nIs working for a well-funded startup a dream of yours?\r\n\r\nIf you are an efficient, skilled, and creative problem solver with an established record of achievement, SPLICE would love to know more about you!', 'SPLICE is looking for highly ambitious, dynamic Web Developers to join full-time with a growing startup.\r\n\r\nWrite readable, maintainable, and efficient code. \r\nParticipate in the design and development of web solutions, with proven advanced technologies.\r\nCreate website layout/user interface\r\nCollaborate with developer team members on best practices, code reviews, internal tools and process improvements. \r\nGather and refine specifications and requirements based on technical needs\r\nCreate and mai', 'Web development experience.\r\nMySQL / MongoDB\r\nHTML/CSS/JavaScript\r\nModern frameworks experience e.g. Laravel\r\nCustomer facing.\r\nExperience beyond web development, such as mobile, PhoneGap, infrastructure, big data, etc.\r\nAgile team environment.', '9', 1, '2017-03-11 16:49:35', '2017-03-11 16:50:30');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `resume_uploads`
 --
 
@@ -464,16 +489,16 @@ CREATE TABLE `teacher_accounts` (
   `phone` varchar(50) NOT NULL,
   `office_address` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `created_on` datetime NOT NULL
+  `created_on` datetime NOT NULL,
+  `last_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teacher_accounts`
 --
 
-INSERT INTO `teacher_accounts` (`id`, `firstname`, `lastname`, `special_designation`, `job_title`, `department`, `email`, `phone`, `office_address`, `password`, `created_on`) VALUES
-(1, 'Harpuneet', 'ghuman', 'special', 'job', 'cse', 'ghumanharpuneet@gmail.com', '6479368403', '1974 Rockport St', 'ghu8403', '2017-03-05 09:50:05'),
-(2, 'nigar ', 'virk', 'special desig', 'job title', 'ece', 'nigar@test.com', '6478527410', '410 atlantic st', 'vir7410', '2017-03-05 10:00:36');
+INSERT INTO `teacher_accounts` (`id`, `firstname`, `lastname`, `special_designation`, `job_title`, `department`, `email`, `phone`, `office_address`, `password`, `created_on`, `last_updated`) VALUES
+(1, 'Harpuneet singh', 'ghuman', 'special', 'lecturer', 'cse', 'ghumanharpuneet@gmail.com', '6479368403', '1974 Rockport St', 'ghu8403', '2017-03-05 09:50:05', '2017-03-10 21:12:42');
 
 --
 -- Indexes for dumped tables
@@ -489,6 +514,12 @@ ALTER TABLE `admin_accounts`
 -- Indexes for table `apps_countries`
 --
 ALTER TABLE `apps_countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `job_info`
+--
+ALTER TABLE `job_info`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -548,6 +579,11 @@ ALTER TABLE `admin_accounts`
 ALTER TABLE `apps_countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 --
+-- AUTO_INCREMENT for table `job_info`
+--
+ALTER TABLE `job_info`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `resume_uploads`
 --
 ALTER TABLE `resume_uploads`
@@ -581,7 +617,7 @@ ALTER TABLE `student_skills`
 -- AUTO_INCREMENT for table `teacher_accounts`
 --
 ALTER TABLE `teacher_accounts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

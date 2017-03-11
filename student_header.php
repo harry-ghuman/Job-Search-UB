@@ -32,7 +32,7 @@ else
                         <li><a href="student_view_profile.php">View profile</a></li>
                     </ul>
                 </li>
-                <li><a href="#">View jobs</a></li>
+                <li><a href="student_view_jobs.php">View jobs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 				<li><a href="student_change_password.php">Change password</a></li>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2017 at 11:39 PM
+-- Generation Time: Mar 13, 2017 at 12:53 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -310,6 +310,29 @@ INSERT INTO `apps_countries` (`id`, `country_code`, `country_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `job_applications`
+--
+
+CREATE TABLE `job_applications` (
+  `id` int(11) NOT NULL,
+  `job_id` varchar(50) NOT NULL,
+  `teacher_id` varchar(50) NOT NULL,
+  `student_id` varchar(50) NOT NULL,
+  `applied_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `job_applications`
+--
+
+INSERT INTO `job_applications` (`id`, `job_id`, `teacher_id`, `student_id`, `applied_on`) VALUES
+(3, '3', '1', '104509784', '2017-03-12 17:12:35'),
+(4, '4', '1', '104509784', '2017-03-12 17:14:02'),
+(5, '3', '1', '2501', '2017-03-12 18:14:06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `job_info`
 --
 
@@ -330,7 +353,9 @@ CREATE TABLE `job_info` (
 --
 
 INSERT INTO `job_info` (`id`, `job_title`, `description`, `responsibilities`, `requirements`, `credits`, `teacher_id`, `created_on`, `last_updated`) VALUES
-(3, 'Software Developer- Splice', 'Do you have a strong technical background matched with a passion for Web Technologies?\r\n\r\nAre you not intimidated by a challenge and love to problem-solve?\r\n\r\nIs working for a well-funded startup a dream of yours?\r\n\r\nIf you are an efficient, skilled, and creative problem solver with an established record of achievement, SPLICE would love to know more about you!', 'SPLICE is looking for highly ambitious, dynamic Web Developers to join full-time with a growing startup.\r\n\r\nWrite readable, maintainable, and efficient code. \r\nParticipate in the design and development of web solutions, with proven advanced technologies.\r\nCreate website layout/user interface\r\nCollaborate with developer team members on best practices, code reviews, internal tools and process improvements. \r\nGather and refine specifications and requirements based on technical needs\r\nCreate and mai', 'Web development experience.\r\nMySQL / MongoDB\r\nHTML/CSS/JavaScript\r\nModern frameworks experience e.g. Laravel\r\nCustomer facing.\r\nExperience beyond web development, such as mobile, PhoneGap, infrastructure, big data, etc.\r\nAgile team environment.', '9', 1, '2017-03-11 16:49:35', '2017-03-11 16:50:30');
+(3, 'Software Developer- Splice', 'Do you have a strong technical background matched with a passion for Web Technologies?\r\n\r\nAre you not intimidated by a challenge and love to problem-solve?\r\n\r\nIs working for a well-funded startup a dream of yours?\r\n\r\nIf you are an efficient, skilled, and creative problem solver with an established record of achievement, SPLICE would love to know more about you!', 'SPLICE is looking for highly ambitious, dynamic Web Developers to join full-time with a growing startup.\r\n\r\nWrite readable, maintainable, and efficient code. \r\nParticipate in the design and development of web solutions, with proven advanced technologies.\r\nCreate website layout/user interface\r\nCollaborate with developer team members on best practices, code reviews, internal tools and process improvements. \r\nGather and refine specifications and requirements based on technical needs\r\nCreate and mai', 'Web development experience.\r\nMySQL / MongoDB\r\nHTML/CSS/JavaScript\r\nModern frameworks experience e.g. Laravel\r\nCustomer facing.\r\nExperience beyond web development, such as mobile, PhoneGap, infrastructure, big data, etc.\r\nAgile team environment.', '9', 1, '2017-03-11 16:49:35', '2017-03-11 16:50:30'),
+(4, 'job title2', 'Description', 'Responsibilities', 'Requirements', '6', 1, '2017-03-12 17:01:34', '0000-00-00 00:00:00'),
+(5, 'job title3', 'Description2', 'Responsibilities2', 'Requirements2', '9', 1, '2017-03-12 18:21:42', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -351,7 +376,8 @@ CREATE TABLE `resume_uploads` (
 --
 
 INSERT INTO `resume_uploads` (`id`, `student_id`, `file`, `type`, `size`) VALUES
-(1, '104509784', '57881-resume.pdf', 'application/pdf', '505');
+(1, '104509784', '57881-resume.pdf', 'application/pdf', '505'),
+(2, '2501', '15653-resume2.pdf', 'application/pdf', '504');
 
 -- --------------------------------------------------------
 
@@ -375,7 +401,8 @@ CREATE TABLE `student_accounts` (
 --
 
 INSERT INTO `student_accounts` (`id`, `email`, `password`, `firstname`, `lastname`, `security_question`, `security_answer`, `student_id`) VALUES
-(3, 'admin@test.com', '$2y$10$S4uIDMwQUoQ9T67tmRQvpeWFBILkS/5y0n/ahc943qgkcP3VcjB6e', 'nigar', 'virk', 'In which city your mother and father meet?', 'amritsar', '104509784');
+(3, 'admin@test.com', '$2y$10$S4uIDMwQUoQ9T67tmRQvpeWFBILkS/5y0n/ahc943qgkcP3VcjB6e', 'nigar', 'virk', 'In which city your mother and father meet?', 'amritsar', '104509784'),
+(4, 'nigar@test.com', '$2y$10$eXOJllntxhvTaJfVTKUD9.zcmlaSov0ZV7jtGRnu628b3mROVuTv6', 'nigar', 'virk', 'In which city your mother and father meet?', 'amritsar', '2501');
 
 -- --------------------------------------------------------
 
@@ -399,7 +426,8 @@ CREATE TABLE `student_education` (
 
 INSERT INTO `student_education` (`id`, `student_id`, `program`, `university`, `gpa`, `country`, `year`) VALUES
 (1, '104509784', 'btech', 'gndu', '4', 'india', '2015'),
-(2, '104509784', 'mac', 'uwindsor', '3', 'canada', '2017');
+(2, '104509784', 'mac', 'uwindsor', '3', 'canada', '2017'),
+(5, '2501', 'btech', 'gndu', '4', 'india', '2015');
 
 -- --------------------------------------------------------
 
@@ -423,7 +451,8 @@ CREATE TABLE `student_experience` (
 
 INSERT INTO `student_experience` (`id`, `student_id`, `job_title`, `company`, `duties`, `start_date`, `end_date`) VALUES
 (1, '104509784', 'customer support', 'kochar infotech', 'customer care', '2017-02-01', '2017-02-02'),
-(2, '104509784', 'php developer', 'vmm education', 'developing projects', '2017-02-03', '2017-02-04');
+(2, '104509784', 'php developer', 'vmm education', 'developing projects', '2017-02-03', '2017-02-04'),
+(4, '2501', 'junior developer', 'capgemini', 'duties', '2017-03-01', '2017-03-02');
 
 -- --------------------------------------------------------
 
@@ -451,7 +480,8 @@ CREATE TABLE `student_info` (
 --
 
 INSERT INTO `student_info` (`id`, `semester`, `year`, `student_id`, `firstname`, `middlename`, `lastname`, `email`, `telephone`, `status`, `gender`, `country`) VALUES
-(1, 'Winter', '2016', '104509784', 'Harpuneet', 'Singh', 'Ghuman', 'ghumanharpuneet@gmail.com', '6479368403', 'International student', 'Male', 'India');
+(1, 'Winter', '2016', '104509784', 'Harpuneet', 'Singh', 'Ghuman', 'ghumanharpuneet@gmail.com', '6479368403', 'International student', 'Male', 'India'),
+(3, 'Winter', '2016', '2501', 'nigar', 'kaur', 'virk', 'nigar@test.com', '8527418520', 'Green card holder/Citizen', 'Female', 'United States');
 
 -- --------------------------------------------------------
 
@@ -470,7 +500,8 @@ CREATE TABLE `student_skills` (
 --
 
 INSERT INTO `student_skills` (`id`, `student_id`, `skills`) VALUES
-(1, '104509784', 'html, css, php, mysql, javascript, jquery');
+(1, '104509784', 'html, css, php, mysql, javascript, jquery'),
+(3, '2501', 'html, css');
 
 -- --------------------------------------------------------
 
@@ -514,6 +545,12 @@ ALTER TABLE `admin_accounts`
 -- Indexes for table `apps_countries`
 --
 ALTER TABLE `apps_countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `job_applications`
+--
+ALTER TABLE `job_applications`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -579,40 +616,45 @@ ALTER TABLE `admin_accounts`
 ALTER TABLE `apps_countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 --
+-- AUTO_INCREMENT for table `job_applications`
+--
+ALTER TABLE `job_applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `job_info`
 --
 ALTER TABLE `job_info`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `resume_uploads`
 --
 ALTER TABLE `resume_uploads`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `student_accounts`
 --
 ALTER TABLE `student_accounts`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `student_education`
 --
 ALTER TABLE `student_education`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `student_experience`
 --
 ALTER TABLE `student_experience`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `student_skills`
 --
 ALTER TABLE `student_skills`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `teacher_accounts`
 --

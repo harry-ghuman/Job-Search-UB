@@ -29,7 +29,7 @@ $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
 
 
-$allowedExts = array("pdf","doc","docx"); 
+$allowedExts = array("pdf","doc","docx");
 
 if ( ! ( in_array($extension, $allowedExts ) ) ) {
 	header("location:student_add_profile.php?q=1");
@@ -46,7 +46,7 @@ else{
 		$sql="INSERT INTO resume_uploads(student_id,file,type,size) VALUES('$student_id','$final_file','$file_type','$new_size')";
 		//echo $sql;
 		mysqli_query($conn,$sql);
-		
+
 	}
 	else
 	{

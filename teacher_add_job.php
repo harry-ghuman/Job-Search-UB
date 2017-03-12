@@ -24,7 +24,7 @@ include "connection.php";
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Job title</label>
+                                <label>Job title</label><span style="color:red">*</span>
                                 <input type="text"class="form-control"name="job_title" required>
 							</div>
                         </div>
@@ -48,7 +48,7 @@ include "connection.php";
                         </div>
 						<div class="row">
                             <div class="form-group col-md-12">
-                                <label>Credits</label>
+                                <label>Credits</label><span style="color:red">*</span>
 								<select class="form-control" name="credits">
                                     <option>3</option>
                                     <option>6</option>

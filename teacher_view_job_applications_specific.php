@@ -4,21 +4,13 @@
 </head>
 <body>
 <?php
-include "student_header.php";
+include "teacher_header.php";
 include "connection.php";
-$email=$_SESSION['email'];
-$query6="select * from student_accounts where email='$email'";
-$result6=mysqli_query($conn,$query6);
-$row6=mysqli_fetch_array($result6);
-$student_id=$row6[7];
+$student_id=$_REQUEST['student_id'];
 
 $query1 = "select * from student_info where student_id='$student_id'";
 $result1 = mysqli_query($conn, $query1);
 $row1 = mysqli_fetch_array($result1);
-
-if (empty($row1[0]))
-	header("location:student_add_profile.php");
-
 
 $query2 = "select * from student_education where student_id='$student_id'";
 $result2 = mysqli_query($conn, $query2);
@@ -91,7 +83,7 @@ $row7=mysqli_fetch_array($result_set);
                             <tr>
                                 <td>Email</td>
                                 <td></td>
-                                <td><?php echo $row1[7] ?></td>
+                                <td><a href="mailto:<?php echo $row1[7] ?>"><?php echo $row1[7] ?></td>
                             </tr>
                             <tr>
                                 <td>Phone</td>

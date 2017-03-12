@@ -14,8 +14,8 @@ $query1 = "select * from student_info where student_id='$student_id'";
 $result1 = mysqli_query($conn, $query1);
 $row1 = mysqli_fetch_array($result1);
 
-//if (!empty($row1[0]))
-//	header("location:student_view_profile.php");
+if (!empty($row1[0]))
+	header("location:student_view_profile.php");
 
 ?>
 <!doctype>
@@ -57,7 +57,7 @@ $row1 = mysqli_fetch_array($result1);
 	}
 	?>
 <div style="background-image: url('');padding: 40px;height:auto;background-size: 100%;">
-	
+
     <div class="container">
         <form action="student_add_profile_action.php" method="post" enctype="multipart/form-data">
             <div class="row">

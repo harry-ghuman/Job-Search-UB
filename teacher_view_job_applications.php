@@ -1,7 +1,13 @@
 <?php
-include "student_header.php";
+include "teacher_header.php";
 include "connection.php";
-$query="select * from job_info";
+$email=$_SESSION['email'];
+$query3="select id from teacher_accounts where email='$email'";
+$res3=mysqli_query($conn,$query3);
+$row3=mysqli_fetch_array($res3);
+$teacher_id=$row3[0];
+
+$query="select * from job_applications where teacher_id=$teacher_id group by job_id";
 $result=mysqli_query($conn,$query);
 if(isset($_REQUEST['q'])) {
     if ($_REQUEST['q'] == 1) {
@@ -26,14 +32,14 @@ if(isset($_REQUEST['q'])) {
                     <?php
                     if(mysqli_num_rows($result)== 0){
                     ?>
-                        <center><h2>No jobs posted</h2></center>
+                        <center><h2>No job application yet</h2></center>
                         </div></div></div></div>
                         </body></html>
                     <?php
                     }
                     else{
                     ?>
-                    <center><h2>List of jobs posted</h2></center>
+                    <center><h2>Job applications</h2></center>
                 </div>
             </div>
             <div class="table-responsive">
@@ -42,26 +48,28 @@ if(isset($_REQUEST['q'])) {
                     <tr>
                         <th>#</th>
                         <th>Job title</th>
-                        <th>Credits</th>
-                        <th>Posted by</th>
+                        <th>Number of applications</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         $count=1;
                         while($row=mysqli_fetch_array($result)){
-                            $query2="select firstname,lastname from teacher_accounts where id='$row[6]'";
+                            $query2="select job_title from job_info where id='$row[1]'";
                             $result2=mysqli_query($conn,$query2);
                             $row2=mysqli_fetch_array($result2);
-                            $teacher_name= $row2[0].' '.$row2[1];
+
+                            $query3="SELECT count(student_id) FROM `job_applications` WHERE job_id=$row[1]";
+                            $result3=mysqli_query($conn,$query3);
+                            $row3=mysqli_fetch_array($result3);
                     ?>
                     <tr>
                         <td><?php echo $count."." ?></td>
-                        <td><?php echo $row[1] ?></td>
-                        <td><?php echo $row[5] ?></td>
-                        <td><?php echo $teacher_name ?></td>
+                        <td><?php echo $row2[0] ?></td>
+                        <td><?php echo $row3[0] ?></td>
 						<td>
-							<button onclick="location.href='student_view_jobs_more.php?job_title=<?php echo $row[1] ?>&teacher_id=<?php echo $row[6] ?>'"class="btn btn-primary btn-md">View more info</button>
+							<button onclick="location.href='teacher_view_job_applications_list.php?job_id=<?php echo $row[1] ?>'"class="btn btn-primary btn-md">View application(s)</button>
 						</td>
                     </tr>
                     <?php

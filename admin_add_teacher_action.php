@@ -29,7 +29,7 @@ if($flag==1)
     header("location:admin_view_teachers.php?q=4");
 }
 else {
-    $query2 = "insert into teacher_accounts values('','" . $firstname . "','" . $lastname . "','" . $special_designation . "','" . $job_title . "','" . $department . "','" . $email . "','" . $phone . "','" . $office_address . "','" . $default_password . "','" . $date . "')";
+    $query2 = "insert into teacher_accounts values('','" . $firstname . "','" . $lastname . "','" . $special_designation . "','" . $job_title . "','" . $department . "','" . $email . "','" . $phone . "','" . $office_address . "','" . $default_password . "','" . $date . "','')";
     mysqli_query($conn, $query2);
     header("location:admin_view_teachers.php?q=2");
 }

@@ -32,7 +32,8 @@ else
                         <li><a href="admin_view_teachers.php">View teacher(s)</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Jobs</a></li>
+                <li><a href="admin_view_jobs.php">Jobs</a></li>
+                <li><a href="admin_view_students.php">Students</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 				<li><a href="admin_change_password.php">Change password</a></li>

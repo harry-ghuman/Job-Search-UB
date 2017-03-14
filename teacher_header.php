@@ -35,7 +35,7 @@ else
                 <li><a href="teacher_view_job_applications.php">Job applications</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Change password</a></li>
+				<li><a href="teacher_change_password.php">Change password</a></li>
                 <li>
                     <a href="teacher_logout.php"><span class="glyphicon glyphicon-off" style="vertical-align: middle"></span> Logout</a>
                 </li>

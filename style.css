@@ -1,0 +1,59 @@
+#header{
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    width: 100%;
+    border-bottom: none;
+}
+#header .navbar{
+    margin-bottom: 0px;
+}
+#header .navbar .nav{
+    padding-top: 35px;
+}
+#header .navbar .logo{
+    display: inline;
+}
+#header .navbar-default{
+    background-color: transparent;
+    border-color: transparent;
+}
+#header .nav li a{
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    font-size: 16px;
+}
+#header .nav li a:hover{
+    background-color: dimgray;
+}
+#header .navbar-default .navbar-nav>.open>a{
+    background-color: dimgray;
+}
+#header .dropdown-menu{
+    background-color: black;
+}
+#header .dropdown-menu>li>a:hover{
+    background-color: dimgray;
+}
+#home .banner{
+    background-image: url(images/banner-image.jpg);
+    background-repeat: no-repeat;
+    height: 800px;
+}
+#home .banner .title{
+    font-size: 42px;
+    color: white;
+    font-family: 'Catamaran';
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 275px;
+    text-shadow: 15px 15px 40px black;
+}
+#home .banner .title-blurb{
+    font-size: 20px;
+    color: white;
+    font-family: 'Catamaran';
+    font-weight: 100;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 15px 15px 40px black;
+}

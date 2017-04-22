@@ -1,8 +1,3 @@
-<!doctype>
-<html>
-<head>
-</head>
-<body>
 <?php
 include "admin_header.php";
 include "connection.php";
@@ -22,21 +17,19 @@ $result2=mysqli_query($conn,$query2);
 $row2=mysqli_fetch_array($result2);
 $teacher_name= $row2[0].' '.$row2[1];
 ?>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2">
+    <div id="panel-home">
+        <div class="panel-banner"></div>
+        <div class="heading">
+            <div class="container">
+                <div class="title text-center">
+                    Job information
+                </div>
             </div>
-            <div class="col-md-8">
-                <div class="well">
-                    <div class="row">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <center><h2>Job information</h2></center>
-                            </div>
-                        </div>
-                    </div>
-                    <table class="table table-condensed">
+        </div>
+        <div class="page-content">
+            <div class="container">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <table class="table table-condensed table-no-border">
                       <thead></thead>
                       <tbody>
                       <tr>
@@ -80,5 +73,6 @@ $teacher_name= $row2[0].' '.$row2[1];
             </div>
         </div>
     </div>
-</body>
-</html>
+    <?php
+    include "admin_footer.php";
+    ?>

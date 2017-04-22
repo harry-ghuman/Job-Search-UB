@@ -1,8 +1,3 @@
-<!doctype>
-<html>
-<head>
-</head>
-<body>
 <?php
 include "admin_header.php";
 include "connection.php";
@@ -11,26 +6,23 @@ $query="select * from teacher_accounts where email='$email'";
 $result=mysqli_query($conn,$query);
 $row=mysqli_fetch_array($result);
 ?>
-<div style="background-image: url('images/company.jpg');padding: 40px;height:auto;background-size: 100%;background-repeat: no-repeat">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
+    <div id="panel-home">
+        <div class="panel-banner"></div>
+        <div class="heading">
+            <div class="container">
+                <div class="title text-center">
+                    Edit teacher information
+                </div>
             </div>
-            <div class="col-md-6">
-                <div class="well">
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading"><h2><center>Edit teacher information</center></h2></div>
-                            </div>
-                        </div>
-                    </div>
-                    <form action="admin_edit_teacher_action.php" method="post">
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <table class="table table-condensed">
-                                    <thead></thead>
-                                    <tbody>
+        </div>
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <form action="admin_edit_teacher_action.php" method="post">
+                            <table class="table table-no-border">
+                                <thead></thead>
+                                <tbody>
                                     <tr>
                                         <td>First name</td>
                                         <td></td>
@@ -72,20 +64,16 @@ $row=mysqli_fetch_array($result);
                                         <td></td>
                                         <td><input type="text"class="form-control"name="office_address" value="<?php echo $row[8] ?>"></td>
                                     </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-md">Submit</button>
-                    </form>
-                    <button onclick="location.href='admin_view_teachers.php'"class="btn btn-primary btn-md">Back</button>
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-primary btn-md">Submit</button>
+                        </form>
+                        <button onclick="location.href='admin_view_teachers.php'"class="btn btn-primary btn-md" style="margin-top:10px;">Back</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</body>
-</html>
-
-
-
+    <?php
+    include "admin_footer.php";
+    ?>

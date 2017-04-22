@@ -17,20 +17,19 @@
                 <div class="logo">
                     <a href="index.php"><img src="images/logo.png" alt="image"></a>
                 </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="index.php">About</a></li>
-                        <li><a href="index.php">Contact</a></li>
-        				<li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Login<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-        						<li><a href="admin_login.php">Admin</a></li>
-        						<li><a href="teacher_login.php">Teacher</a></li>
-        						<li><a href="student_login.php">Student</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="index.php">About</a></li>
+                    <li><a href="index.php">Contact</a></li>
+    				<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Login<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+    						<li><a href="admin_login.php">Admin</a></li>
+    						<li><a href="teacher_login.php">Teacher</a></li>
+    						<li><a href="student_login.php">Student</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
         </div>
     </div>

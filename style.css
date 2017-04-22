@@ -119,6 +119,10 @@
     border-top:2px solid darkgray;
     padding: 30px;
 }
+#footer .footer-logo{
+    height: 165px;
+    vertical-align: top;
+}
 #footer .quick-links{
     display: inline-block;
     text-align: center;
@@ -156,4 +160,83 @@
 }
 .login .navbar-default .navbar-nav>li>a:hover{
     background-color: black;
+}
+.alert{
+    position: absolute;
+    top: 73px;
+    width: 100%;
+    z-index: 1;
+}
+#header .navbar .logo a{
+    text-decoration: none;
+}
+#header .navbar .logo a .panel-logo{
+    height: 55px;
+    width: 55px;
+    margin-top: 8px;
+    -webkit-filter: invert(100%);
+}
+#header .navbar .logo a .panel-heading{
+    display: inline;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Catamaran';
+    vertical-align: text-top;
+}
+#header .navbar .nav-panel{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#panel-home{
+    background-color: #2A2A2A;
+}
+#panel-home .panel-banner{
+    background-image: url(images/interior-banner.jpg);
+    height: 381px;
+    background-size: cover;
+}
+#panel-home .heading{
+    background-image: url(images/carbonfibre-texture.jpg);
+    background-repeat: repeat;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+#panel-home .heading .title{
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    font-family: 'Catamaran';
+}
+#panel-home .page-content{
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.table-hover>tbody>tr:hover {
+    background-color: dimgray !important;
+}
+.btn-primary, .panel-primary>.panel-heading, .panel-primary{
+    background-color: dimgray !important;
+    border-color: gray !important;
+}
+.btn:hover{
+    background-color: gray !important;
+    border-color: white !important;
+}
+a{
+    color: white !important;
+}
+.table-no-border >tbody >tr >td{
+    border-top: none !important;
+}
+.table-no-border >tbody >tr >td:first-child{
+    font-weight: bold;
+}
+.badge{
+    margin-right: 5px;
 }

@@ -1,8 +1,7 @@
-<?php
-include "admin_header.php";
-echo 'Welcome '.$_SESSION['username'];
-
-if(isset($_REQUEST['q'])) {
+    <?php
+    include "admin_header.php";
+    // echo 'Welcome '.$_SESSION['username'];
+    if(isset($_REQUEST['q'])) {
         if($_REQUEST['q'] == 1) {
             ?>
             <div class="alert alert-success">
@@ -11,4 +10,18 @@ if(isset($_REQUEST['q'])) {
             </div>
             <?php
         }
-}
+    }
+    ?>
+    <div id="panel-home">
+        <div class="panel-banner"></div>
+        <div class="heading">
+            <div class="container">
+                <div class="title">
+                    Welcome to Admin Portal
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+    include "admin_footer.php";
+    ?>

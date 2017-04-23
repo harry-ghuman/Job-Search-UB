@@ -44,93 +44,97 @@ if(isset($_REQUEST['q'])) {
     }
 }
 ?>
-<!doctype>
-<html>
-<head>
-</head>
-<body>
-    <div class="container" >
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
+    <div id="panel-home">
+        <div class="panel-banner"></div>
+        <div class="heading">
+            <div class="container">
+                <div class="title text-center">
+                    List of jobs posted
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="container" >
+                <div class="col-md-12">
                     <?php
                     if(mysqli_num_rows($result)== 0){
                     ?>
-                        <center><h2>No jobs posted</h2></center>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <center><h2>No jobs posted</h2></center>
+                            </div>
+                        </div>
                         </div></div></div></div>
-                        </body></html>
                     <?php
                     }
                     else{
                     ?>
-                    <center><h2>List of jobs posted</h2></center>
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Job title</th>
+                                    <th>Description</th>
+                                    <th>Responsibilities</th>
+                                    <th>Requirements</th>
+                                    <th>Credits</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $count=1;
+                                    while($row=mysqli_fetch_array($result)){
+                                ?>
+                                <tr>
+                                    <td><?php echo $count."." ?></td>
+                                    <td><?php echo $row[1] ?></td>
+                                    <td><?php echo $row[2] ?></td>
+                                    <td><?php echo $row[3] ?></td>
+                                    <td><?php echo $row[4] ?></td>
+                                    <td><?php echo $row[5] ?></td>
+            						<td>
+            							<button onclick="location.href='teacher_edit_job.php?job_title=<?php echo $row[1] ?>'"class="btn btn-primary btn-md">Edit</button>
+            							<button data-toggle="modal" data-target="#myModal" data-id="<?php echo $row[0] ?>" class="open-modal btn btn-primary btn-md">Delete</button>
+            						</td>
+                                </tr>
+                                <?php
+                                $count++;
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Job title</th>
-                        <th>Description</th>
-                        <th>Responsibilities</th>
-                        <th>Requirements</th>
-                        <th>Credits</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $count=1;
-                        while($row=mysqli_fetch_array($result)){
-                    ?>
-                    <tr>
-                        <td><?php echo $count."." ?></td>
-                        <td><?php echo $row[1] ?></td>
-                        <td><?php echo $row[2] ?></td>
-                        <td><?php echo $row[3] ?></td>
-                        <td><?php echo $row[4] ?></td>
-                        <td><?php echo $row[5] ?></td>
-						<td>
-							<button onclick="location.href='teacher_edit_job.php?job_title=<?php echo $row[1] ?>'"class="btn btn-primary btn-md">Edit</button>
-							<button data-toggle="modal" data-target="#myModal" data-id="<?php echo $row[0] ?>" class="open-modal btn btn-primary btn-md">Delete</button>
-						</td>
-                    </tr>
-                    <?php
-                    $count++;
-                    }
-                    ?>
-                </tbody>
-            </table>
-            </div>
+        	<script>
+            	$(document).on("click", ".open-modal", function () {
+            		var teacher_email = $(this).data('id');
+            		$("#email").val( teacher_email );
+            	});
+        	</script>
+        	<div class="modal fade" id="myModal" role="dialog" style="top:150px">
+        		<div class="modal-dialog modal-sm">
+        			<div class="modal-content">
+        			<div class="modal-header">
+        				<form action="teacher_delete_job.php" method="post">
+        					<input type="hidden" id="email" name="job_id">
+        					<div class="alert alert-warning text-center">
+        						<strong>Are you sure?</strong>
+        					</div>
+        					<div class="text-center">
+        					<button type="submit" class="btn btn-default">Yes</button>
+        				</form>
+        				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        				</div>
+        			</div>
+        			</div>
+        		</div>
+        	</div>
         </div>
     </div>
-	<script>
-	$(document).on("click", ".open-modal", function () {
-		var teacher_email = $(this).data('id');
-		$("#email").val( teacher_email );
-	});
-	</script>
-	<div class="modal fade" id="myModal" role="dialog" style="top:150px">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-			<div class="modal-header">
-				<form action="teacher_delete_job.php" method="post">
-					<input type="hidden" id="email" name="job_id">
-					<div class="alert alert-warning text-center">
-						<strong>Are you sure?</strong>
-					</div>
-					<div class="text-center">
-					<button type="submit" class="btn btn-default">Yes</button>
-				</form>
-				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-				</div>
-			</div>
-			</div>
-		</div>
-	</div>
-
-</body>
-</html>
-<?php
-} ?>
+    <?php
+    }
+    include "teacher_footer.php";
+    ?>

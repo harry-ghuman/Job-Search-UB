@@ -1,28 +1,23 @@
-<!doctype>
-<html>
-<head>
-	<script type="text/javascript">
-        function go()
-        {
-            var status=document.getElementById("status").value;
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("sp1").innerHTML = xmlhttp.responseText;
-                }
+<script type="text/javascript">
+    function go()
+    {
+        var status=document.getElementById("status").value;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("sp1").innerHTML = xmlhttp.responseText;
             }
-            xmlhttp.open("GET", "student_add_profile2.php?status=" +status,true);
-            xmlhttp.send();
         }
-        function add_education() {
-            document.getElementById('education').innerHTML += '<tr> <td><input type="text" placeholder="Program" name="program[]" class="form-control"></td> <td><input type="text" placeholder="University/College" name="university[]" class="form-control"></td> <td><input type="text" placeholder="GPA" name="gpa[]" class="form-control"></td><td><input type="text" placeholder="Country" name="country[]" class="form-control"></td> <td><input type="text" placeholder="Year" name="year[]" class="form-control"></td></tr>';
-        }
-        function add_workexperience() {
-            document.getElementById('workexperience').innerHTML += '<tr> <td><input type="text" placeholder="Job title" name="c_jobtitle[]" class="form-control"></td> <td><input type="text" placeholder="Company" name="c_name[]" class="form-control"></td> <td><input type="text" placeholder="Duties" name="c_duties[]" class="form-control"></td> <td><input type="date" placeholder="Start date" name="c_startdate[]" class="form-control"></td> <td><input type="date" placeholder="End date" name="c_enddate[]" class="form-control"></td> </tr>';
-        }
-    </script>
-</head>
-<body>
+        xmlhttp.open("GET", "student_add_profile2.php?status=" +status,true);
+        xmlhttp.send();
+    }
+    function add_education() {
+        document.getElementById('education').innerHTML += '<tr> <td><input type="text" placeholder="Program" name="program[]" class="form-control"></td> <td><input type="text" placeholder="University/College" name="university[]" class="form-control"></td> <td><input type="text" placeholder="GPA" name="gpa[]" class="form-control"></td><td><input type="text" placeholder="Country" name="country[]" class="form-control"></td> <td><input type="text" placeholder="Year" name="year[]" class="form-control"></td></tr>';
+    }
+    function add_workexperience() {
+        document.getElementById('workexperience').innerHTML += '<tr> <td><input type="text" placeholder="Job title" name="c_jobtitle[]" class="form-control"></td> <td><input type="text" placeholder="Company" name="c_name[]" class="form-control"></td> <td><input type="text" placeholder="Duties" name="c_duties[]" class="form-control"></td> <td><input type="date" placeholder="Start date" name="c_startdate[]" class="form-control"></td> <td><input type="date" placeholder="End date" name="c_enddate[]" class="form-control"></td> </tr>';
+    }
+</script>
 <?php
 include "student_header.php";
 include "connection.php";
@@ -53,129 +48,124 @@ $result_set=mysqli_query($conn,$sql);
 $row7=mysqli_fetch_array($result_set);
 
 ?>
-<div style="background-image: url('images/student2.jpg');padding: 40px;height:auto;background-size: 100%;">
-    <div class="container-fluid">
-        <form action="student_edit_profile_action.php" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6">
-                    <div class="well">
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading"><center><h2>Edit student profile</h2></center></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label>Semester registered</label>
-                                <select class="form-control" name="semester"required>
-                                    <option selected="selected">
-                                        <?php echo $row1[1] ?>
-                                    </option>
-									<option>Fall</option>
-                                    <option>Winter</option>
-                                    <option>Summer</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Year</label>
-                                <select class="form-control"name="year"required>
-                                    <option selected="selected"><?php echo $row1[2] ?></option>
-                                    <option>2016</option>
-                                    <option>2017</option>
-                                    <option>2018</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <span class="badge">1</span>&nbsp;<label><h3> <strong>Personal Information</strong></h3></label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label>Student ID</label>
-                                <input type="text"class="form-control"name="student_id" value="<?php echo $student_id ?>" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label>First name</label>
-                                <input type="text"class="form-control"name="firstname" value="<?php echo $row1[4] ?>">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Middle name</label>
-                                <input type="text"class="form-control"name="middlename" value="<?php echo $row1[5] ?>">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label>Last name</label>
-                                <input type="text"class="form-control"name="lastname" value="<?php echo $row1[6] ?>">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label>Email</label>
-                                <input type="email"class="form-control"name="email" value="<?php echo $row1[7] ?>">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label>Phone</label>
-                                <input type="number"class="form-control"name="telephone" value="<?php echo $row1[8] ?>">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label>Gender</label>
-                                <select class="form-control"name="gender">
-                                    <option selected="selected"><?php echo $row1[10] ?></option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                                <br>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Status</label>
-                                <select class="form-control"name="status">
-                                    <option selected="selected"><?php echo $row1[9] ?></option>
-                                    <option>international student</option>
-                                    <option>permanent resident/Citizen</option>
-                                </select>
-                            </div>
-                        </div>
-                        <?php
-                        if ($row1[9]=='International student') {
-                            ?>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label>Country</label>
-                                    <input type="text"class="form-control"name="country" value="<?php echo $row1[11]?>">
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                            
-                       
-					</div>
+	<div id="panel-home">
+		<div class="panel-banner"></div>
+		<div class="heading">
+			<div class="container">
+				<div class="title text-center">
+					Edit Student Profile
 				</div>
 			</div>
+		</div>
+		<div class="page-content">
+		    <div class="container">
+		        <form action="student_edit_profile_action.php" method="post" enctype="multipart/form-data">
+		            <div class="row">
+		                <div class="col-md-6 col-md-offset-3">
+	                        <div class="row">
+	                            <div class="form-group col-md-6">
+	                                <label>Semester registered</label>
+	                                <select class="form-control" name="semester"required>
+	                                    <option selected="selected">
+	                                        <?php echo $row1[1] ?>
+	                                    </option>
+										<option>Fall</option>
+	                                    <option>Winter</option>
+	                                    <option>Summer</option>
+	                                </select>
+	                            </div>
+	                            <div class="form-group col-md-6">
+	                                <label>Year</label>
+	                                <select class="form-control"name="year"required>
+	                                    <option selected="selected"><?php echo $row1[2] ?></option>
+	                                    <option>2016</option>
+	                                    <option>2017</option>
+	                                    <option>2018</option>
+	                                </select>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="form-group col-md-12">
+	                                <span class="badge">1</span>&nbsp;<label><h3> <strong>Personal Information</strong></h3></label>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="form-group col-md-12">
+	                                <label>Student ID</label>
+	                                <input type="text"class="form-control"name="student_id" value="<?php echo $student_id ?>" readonly>
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="form-group col-md-6">
+	                                <label>First name</label>
+	                                <input type="text"class="form-control"name="firstname" value="<?php echo $row1[4] ?>">
+	                            </div>
+	                            <div class="form-group col-md-6">
+	                                <label>Middle name</label>
+	                                <input type="text"class="form-control"name="middlename" value="<?php echo $row1[5] ?>">
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="form-group col-md-12">
+	                                <label>Last name</label>
+	                                <input type="text"class="form-control"name="lastname" value="<?php echo $row1[6] ?>">
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="form-group col-md-12">
+	                                <label>Email</label>
+	                                <input type="email"class="form-control"name="email" value="<?php echo $row1[7] ?>">
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="form-group col-md-12">
+	                                <label>Phone</label>
+	                                <input type="number"class="form-control"name="telephone" value="<?php echo $row1[8] ?>">
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="form-group col-md-6">
+	                                <label>Gender</label>
+	                                <select class="form-control"name="gender">
+	                                    <option selected="selected"><?php echo $row1[10] ?></option>
+	                                    <option>Male</option>
+	                                    <option>Female</option>
+	                                </select>
+	                                <br>
+	                            </div>
+	                            <div class="form-group col-md-6">
+	                                <label>Status</label>
+	                                <select class="form-control"name="status">
+	                                    <option selected="selected"><?php echo $row1[9] ?></option>
+	                                    <option>international student</option>
+	                                    <option>Green card holder/Citizen</option>
+	                                </select>
+	                            </div>
+	                        </div>
+	                        <?php
+	                        if ($row1[9]=='International student') {
+	                            ?>
+	                            <div class="row">
+	                                <div class="form-group col-md-6">
+	                                    <label>Country</label>
+	                                    <input type="text"class="form-control"name="country" value="<?php echo $row1[11]?>">
+	                                </div>
+	                            </div>
+	                            <?php
+	                        }
+	                        ?>
+						</div>
+					</div>
 					<br>
 					<div class="row">
-                    <div class="form-group col-md-8 col-md-offset-2">
-                        <div class="well">
+	                    <div class="form-group col-md-10 col-md-offset-1">
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <span class="badge">2</span>&nbsp;<label><h3> <strong style="vertical-align: middle">Education</strong></h3></label>
-                                    <input type="button" value="Add education" onclick="add_education();" class="btn btn-info" style="float: right;vertical-align: middle;margin-top: 28px;">
+                                    <input type="button" value="Add education" onclick="add_education();" class="btn btn-primary" style="float: right;vertical-align: middle;margin-top: 28px;">
                                 </div>
                             </div>
-                            <table class="table" id="education">
+                            <table class="table table-no-border" id="education">
 							<?php
                             while ($row2 = mysqli_fetch_array($result2)) {
                                 ?>
@@ -193,10 +183,10 @@ $row7=mysqli_fetch_array($result_set);
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <span class="badge">3</span>&nbsp;<label><h3> <strong style="vertical-align: middle">Work experience</strong></h3></label>
-                                    <input type="button" value="Add company" onclick="add_workexperience();" class="btn btn-info" style="float: right;vertical-align: middle;margin-top: 28px;">
+                                    <input type="button" value="Add company" onclick="add_workexperience();" class="btn btn-primary" style="float: right;vertical-align: middle;margin-top: 28px;">
                                 </div>
                             </div>
-                            <table class="table" id="workexperience">
+                            <table class="table table-no-border" id="workexperience">
 							<?php
                             while ($row3 = mysqli_fetch_array($result4)) {
                                 ?>
@@ -216,7 +206,7 @@ $row7=mysqli_fetch_array($result_set);
                                     <span class="badge">4</span>&nbsp;<label><h3> <strong style="vertical-align: middle">Skills</strong></h3></label>
                                 </div>
                             </div>
-							
+
 							<div class="row" style="padding-left:25px">
 								<br>
 								<?php
@@ -236,7 +226,7 @@ $row7=mysqli_fetch_array($result_set);
                                 <div id="field">
                                     <div>
                                         <input autocomplete="off" class="input form-control" id="field1" name="skills[]" type="text" data-items="8"/>
-                                        <button id="b1" class="btn add-more newbtn" type="button">+</button>
+                                        <button id="b1" class="btn add-more newbtn btn-primary" type="button">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -249,14 +239,13 @@ $row7=mysqli_fetch_array($result_set);
                                     margin-right: 30px;
                                 }
                             </style>
-
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <span class="badge">5</span>&nbsp;<label><h3> <strong style="vertical-align: middle">Upload resume</strong></h3></label>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 25px">
-								<button type="button" class="btn">
+								<button type="button" class="btn btn-primary">
 									<a href="resume_uploads/<?php echo $row7['file'] ?>" target="_blank" >View resume</a>
 								</button>
 								<br><br>
@@ -281,42 +270,39 @@ $row7=mysqli_fetch_array($result_set);
                                 <button type="submit" class="btn btn-primary btn-lg" style="float: left;">Submit</button>
                             </div>
                         </div>
-                    </div>
-                </div>
-			
-        </form>
-    </div>
-</div>
-<script>
-    $(document).ready(function(){
-        var next = 1;
-        $(".add-more").click(function(e){
-            e.preventDefault();
-            var addto = "#field" + next;
-            var addRemove = "#field" + (next);
-            next = next + 1;
-            var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="skills[]" type="text">';
-            var newInput = $(newIn);
-            var removeBtn = '<button id="remove' + (next - 1) + '" class="btn newbtn btn-danger remove-me" >-</button>';
-            var removeButton = $(removeBtn);
-            $(addto).after(newInput);
-            $(addRemove).after(removeButton);
-            $("#field" + next).attr('data-source',$(addto).attr('data-source'));
-            $("#count").val(next);
+                	</div>
+		        </form>
+		    </div>
+		</div>
+	</div>
+	<script>
+	    $(document).ready(function(){
+	        var next = 1;
+	        $(".add-more").click(function(e){
+	            e.preventDefault();
+	            var addto = "#field" + next;
+	            var addRemove = "#field" + (next);
+	            next = next + 1;
+	            var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="skills[]" type="text">';
+	            var newInput = $(newIn);
+	            var removeBtn = '<button id="remove' + (next - 1) + '" class="btn newbtn btn-danger remove-me" >-</button>';
+	            var removeButton = $(removeBtn);
+	            $(addto).after(newInput);
+	            $(addRemove).after(removeButton);
+	            $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+	            $("#count").val(next);
 
-            $('.remove-me').click(function(e){
-                e.preventDefault();
-                var fieldNum = this.id.charAt(this.id.length-1);
-                var fieldID = "#field" + fieldNum;
-                $(this).remove();
-                $(fieldID).remove();
-            });
-        });
+	            $('.remove-me').click(function(e){
+	                e.preventDefault();
+	                var fieldNum = this.id.charAt(this.id.length-1);
+	                var fieldID = "#field" + fieldNum;
+	                $(this).remove();
+	                $(fieldID).remove();
+	            });
+	        });
+	    });
 
-
-
-    });
-
-</script>
-</body>
-</html>
+	</script>
+	<?php
+	include "student_footer.php";
+	?>

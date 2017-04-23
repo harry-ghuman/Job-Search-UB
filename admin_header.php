@@ -10,7 +10,7 @@ else
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Admin Portal | Jobs Portal | University of Bridgeport</title>
+    <title>Admin Portal | Job Portal | University of Bridgeport</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">

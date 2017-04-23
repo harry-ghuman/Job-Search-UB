@@ -1,8 +1,10 @@
     <div id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
+                <div class="col-sm-2 col-sm-offset-4">
                     <img class="footer-logo" src="images/footerlogo.png" alt="footer-logo">
+                </div>
+                <div class="col-sm-2">
                     <div class="quick-links">
                         <div class="title">
                             Quick Links

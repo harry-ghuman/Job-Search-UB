@@ -202,10 +202,10 @@ $row7=mysqli_fetch_array($result_set);
                         </div>
     					<br>
     					<div class="row">
-    						<div class="btn btn-primary">
-    							<a href="resume_uploads/<?php echo $row7['file'] ?>" target="_blank" >Download resume</a>
-    						</div>
-    					</div>
+                            <button type="button" class="btn btn-primary">
+                               <a href="resume_uploads/<?php echo $row7['file'] ?>" target="_blank" >Download resume</a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,27 +1,20 @@
-<?php
-include "teacher_header.php";
-include "connection.php";
-
-?>
-<!doctype>
-<html>
-<head>
-</head>
-<body>
-<div style="background-image: url('');padding: 40px;height:auto;background-size: 100%;">
-
-    <div class="container">
-        <form action="teacher_add_job_action.php" method="post">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="well">
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading"><h2><center>Job information</center></h2></div>
-                                </div>
-                            </div>
-                        </div>
+    <?php
+    include "teacher_header.php";
+    include "connection.php";
+    ?>
+    <div id="panel-home">
+        <div class="panel-banner"></div>
+        <div class="heading">
+            <div class="container">
+                <div class="title text-center">
+                    Add Job information
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="container">
+                <form action="teacher_add_job_action.php" method="post">
+                    <div class="col-sm-6 col-sm-offset-3">
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label>Job title</label><span style="color:red">*</span>
@@ -60,12 +53,11 @@ include "connection.php";
 						<div class="row" style="margin-left: 5px">
 							<button type="submit" class="btn btn-primary btn-lg">Submit</button>
 						</div>
-
                     </div>
-                </div>
-			</div>
-        </form>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-</body>
-</html>
+    <?php
+    include "teacher_footer.php";
+    ?>
